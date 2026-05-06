@@ -1,0 +1,10 @@
+# Ignore build artifacts, IDE files and other unnecessary files for the image
+target
+.mvn
+.git
+*.log
+*.tmp
+*.swp
+Dockerfile
+**/node_modules
+
