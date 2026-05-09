@@ -1,4 +1,4 @@
-package com.hotelvista.service_service.entity;
+package com.hotelvista.service_service.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;

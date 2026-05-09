@@ -2,7 +2,7 @@ package com.hotelvista.service_service.service;
 
 import com.hotelvista.service_service.dto.ServiceRequestDTO;
 import com.hotelvista.service_service.dto.ServiceResponseDTO;
-import com.hotelvista.service_service.entity.ServiceCategory;
+import com.hotelvista.service_service.model.ServiceCategory;
 import com.hotelvista.service_service.repository.ServiceRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -36,7 +36,7 @@ public class ServiceCatalogService {
     }
 
     public ServiceResponseDTO save(ServiceRequestDTO request) {
-        com.hotelvista.service_service.entity.Service service = new com.hotelvista.service_service.entity.Service();
+        com.hotelvista.service_service.model.Service service = new com.hotelvista.service_service.model.Service();
         service.setServiceName(request.getServiceName());
         service.setDescription(request.getDescription());
         service.setPrice(request.getPrice());
@@ -51,7 +51,7 @@ public class ServiceCatalogService {
         repository.deleteById(id);
     }
 
-    private ServiceResponseDTO toResponseDTO(com.hotelvista.service_service.entity.Service service) {
+    private ServiceResponseDTO toResponseDTO(com.hotelvista.service_service.model.Service service) {
         return new ServiceResponseDTO(
                 service.getServiceID(),
                 service.getServiceName(),

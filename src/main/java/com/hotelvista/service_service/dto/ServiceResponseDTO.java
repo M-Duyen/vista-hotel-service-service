@@ -1,6 +1,6 @@
 package com.hotelvista.service_service.dto;
 
-import com.hotelvista.service_service.entity.ServiceCategory;
+import com.hotelvista.service_service.model.ServiceCategory;
 
 import java.util.List;
 

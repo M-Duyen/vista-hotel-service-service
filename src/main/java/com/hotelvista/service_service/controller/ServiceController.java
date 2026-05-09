@@ -2,7 +2,7 @@ package com.hotelvista.service_service.controller;
 
 import com.hotelvista.service_service.dto.ServiceRequestDTO;
 import com.hotelvista.service_service.dto.ServiceResponseDTO;
-import com.hotelvista.service_service.entity.ServiceCategory;
+import com.hotelvista.service_service.model.ServiceCategory;
 import com.hotelvista.service_service.service.ServiceCatalogService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

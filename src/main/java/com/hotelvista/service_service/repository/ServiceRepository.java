@@ -1,7 +1,7 @@
 package com.hotelvista.service_service.repository;
 
-import com.hotelvista.service_service.entity.Service;
-import com.hotelvista.service_service.entity.ServiceCategory;
+import com.hotelvista.service_service.model.Service;
+import com.hotelvista.service_service.model.ServiceCategory;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
