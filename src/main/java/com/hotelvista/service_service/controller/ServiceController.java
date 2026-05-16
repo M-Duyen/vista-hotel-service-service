@@ -46,6 +46,12 @@ public class ServiceController {
         return serviceCatalogService.save(request);
     }
 
+    @PutMapping("/{id}")
+    public ServiceResponseDTO update(@PathVariable String id, @RequestBody ServiceRequestDTO request) {
+        request.setServiceID(id);
+        return serviceCatalogService.save(request);
+    }
+
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable String id) {
         serviceCatalogService.deleteById(id);

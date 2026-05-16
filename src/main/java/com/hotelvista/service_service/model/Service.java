@@ -31,6 +31,8 @@ public class Service {
     private String description;
 
     private Double price;
+    
+    private String unit;
 
     private boolean availability;
 
@@ -44,5 +46,10 @@ public class Service {
     @CollectionTable(name = "service_images", joinColumns = @JoinColumn(name = "service_id"))
     @Column(name = "images_url")
     private List<String> images;
+
+    @ElementCollection
+    @CollectionTable(name = "service_room_types", joinColumns = @JoinColumn(name = "service_id"))
+    @Column(name = "room_type_id")
+    private List<String> allowedRoomTypes;
 }
 
