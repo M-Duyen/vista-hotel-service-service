@@ -8,6 +8,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
+import java.util.UUID;
 
 @org.springframework.stereotype.Service
 @RequiredArgsConstructor
@@ -37,13 +38,20 @@ public class ServiceCatalogService {
 
     public ServiceResponseDTO save(ServiceRequestDTO request) {
         com.hotelvista.service_service.model.Service service = new com.hotelvista.service_service.model.Service();
+        String serviceID = request.getServiceID();
+        if (serviceID == null || serviceID.isBlank()) {
+            serviceID = "SRV-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
+        }
+        service.setServiceID(serviceID);
         service.setServiceName(request.getServiceName());
         service.setDescription(request.getDescription());
         service.setPrice(request.getPrice());
+        service.setUnit(request.getUnit());
         service.setAvailability(request.isAvailability());
         service.setServiceHours(request.getServiceHours());
         service.setServiceCategory(request.getServiceCategory());
         service.setImages(request.getImages());
+        service.setAllowedRoomTypes(request.getAllowedRoomTypes());
         return toResponseDTO(repository.save(service));
     }
 
@@ -57,10 +65,12 @@ public class ServiceCatalogService {
                 service.getServiceName(),
                 service.getDescription(),
                 service.getPrice(),
+                service.getUnit(),
                 service.isAvailability(),
                 service.getServiceHours(),
                 service.getServiceCategory(),
-                service.getImages()
+                service.getImages(),
+                service.getAllowedRoomTypes()
         );
     }
 }

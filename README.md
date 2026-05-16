@@ -21,6 +21,21 @@ $env:Path="$env:JAVA_HOME\bin;$env:Path"
 
 If you want to use the existing MariaDB database, keep the datasource settings in `src/main/resources/application.properties`.
 
+## Database setup
+
+Create database `servicedb` before running the service:
+
+```sql
+CREATE DATABASE IF NOT EXISTS servicedb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
+The app uses `jdbc:mariadb://localhost:3306/servicedb` and auto-seeds fake catalog data on startup when the table is empty.
+You can disable seeding with:
+
+```ini
+app.seed.enabled=false
+```
+
 The module exposes the same catalog routes as the monolith:
 - `GET /services`
 - `GET /services/{id}`
